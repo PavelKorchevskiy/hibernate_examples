@@ -1,7 +1,9 @@
 package com.examples.single_table;
 
 import com.examples.HibernateSessionFactory;
+import java.util.List;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 public class Start {
 
@@ -14,6 +16,12 @@ public class Start {
     session.save(dog);
     session.getTransaction().commit();
     session.close();
+    System.out.println(getAllAnimals());
   }
 
+  private static List<Animal> getAllAnimals() {
+    Session session = HibernateSessionFactory.getSessionFactory().openSession();
+    Query<Animal> query = session.createQuery("from Animal ");
+    return query.list();
+  }
 }
