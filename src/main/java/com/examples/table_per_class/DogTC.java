@@ -12,7 +12,6 @@ public class DogTC extends AnimalTC {
   @Column(name = "isGoodBoy")
   private boolean isGoodBoy;
 
-  //all dogs default good boys)
   public DogTC() {
     this.isGoodBoy = true;
   }
