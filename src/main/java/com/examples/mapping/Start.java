@@ -30,11 +30,11 @@ public class Start {
     System.out
         .println("_______ " + query.stream().findAny().orElseThrow(IllegalArgumentException::new));
     //criteria
-    System.out.println("____________________________________-");
+    System.out.println("__________________________________-");
     Criteria criteria = session.createCriteria(Barista.class)
         .add(Restrictions.eq("name", "Jaugen"));
     criteria.list().forEach(System.out::println);
-    System.out.println("____________________________________-");
+    System.out.println("__________________________________-");
     //criteria 2.0
     CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
     CriteriaQuery<Table> criteriaQuery = criteriaBuilder.createQuery(Table.class);

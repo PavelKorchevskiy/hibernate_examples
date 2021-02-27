@@ -1,5 +1,6 @@
 package com.examples.joined_table;
 
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -25,5 +26,34 @@ public class CatJ extends AnimalJ {
 
   public void setCountOfEatenMice(int countOfEatenMice) {
     this.countOfEatenMice = countOfEatenMice;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    if (!super.equals(o)) {
+      return false;
+    }
+    CatJ catJ = (CatJ) o;
+    return countOfEatenMice == catJ.countOfEatenMice;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(super.hashCode(), countOfEatenMice);
+  }
+
+  @Override
+  public String toString() {
+    return "CatJ{" +
+        "id=" + getId() +
+        ", name=" + getName() +
+        ", countOfEatenMice=" + countOfEatenMice +
+        '}';
   }
 }
